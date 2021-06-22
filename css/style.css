@@ -104,3 +104,13 @@ h6 {
 	font-family: 'Reggae One', cursive;
     margin:  1% 0 1% 0;
 }
+.table{
+    width: 80%;
+    margin: auto;
+    background: -webkit-linear-gradient(to right, #1a8006d3, #000428);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #408d00da, #103d0244); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+}
+.ticket_prices{
+    margin: 20px;
+}

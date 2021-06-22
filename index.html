@@ -7,7 +7,12 @@
 
   <link href="css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <title>registration numbers</title>
+
+
+<link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/place-search-js/v1.0.0/place-search.css"/>
+
+<script src="https://api.mqcdn.com/sdk/place-search-js/v1.0.0/place-search.js"></script>
+    <title>INCREDIBLE BUS INC</title>
   </head>
   <body>
   <div class="container" id="tp">
@@ -31,7 +36,7 @@
         <div class="row">
             
             <div class="col-md-8">
-              <input class="form-control" type="text" placeholder="FROM">
+              <input type="search" id="place-search-input" class="form-control" type="text" placeholder="FROM">
             </br>
                <input class="form-control" type="text" placeholder="TO">
               </div>
@@ -47,7 +52,9 @@
                 </div>
             
                  <div class="col-md-4">
+                       <a href="./prices.html"> 
                         <button class="btn btn-1 btn-sep icon-info addButton" style="margin-left: 63%;">Enter</button>
+                       </a>
                 </div>
         </div>
 
@@ -58,7 +65,9 @@
 
     <script src="js/bootstrap.js"></script>
     <script src="js/scrollReveal.js" defer></script>
-    <script src="js/registration_numbers.js"></script>
-    <script src="js/reg_numbersDOM.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@algolia/autocomplete-js"></script>
+<script>
+  const { autocomplete } = window['@algolia/autocomplete-js'];
+</script>
   </body>
 </html>
