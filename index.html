@@ -14,72 +14,71 @@
 
   <script src="https://api.mqcdn.com/sdk/place-search-js/v1.0.0/place-search.js"></script>
 
-  <script type = "text/javascript">	
+  <script type="text/javascript">
 
-const tickets = [
-     {  name: "cpt_nyanga",
-        daily: 15,
+    const tickets = [{
+      "cpt_nyanga": {
+        daily: 15, 
         weekly: 100,
         two_weeks: 180,
         monthly: 300
-    },
-     {  name: "cpt_langa",
+      },
+      "cpt_langa": {
         daily: 12,
         weekly: 90,
         two_weeks: 150,
         monthly: 280
-    },
-     {name: "cpt_khayelitsha",
+      },
+      "cpt_khayelitsha": {
         daily: 19,
         weekly: 200,
         two_weeks: 280,
         monthly: 400
-    },
-     {  name: "cpt_gugs",
+      },
+      "cpt_gugs": {
         daily: 16,
         weekly: 120,
         two_weeks: 194,
         monthly: 250
-    }
-  ]
- 
+      }
+    }]
+
+
+
     function func(x) {
-      
-      alert(x.value);
-      var location = []
-      switch(x.value) {
+
+      var location = [];
+      switch (x.value) {
+
         case "cpt-nyanga":
-          localStorage.setItem()
+  
+          for (var i = 0; i < tickets.length; i++) {
+           console.log(tickets[i]['cpt_nyanga'])
+           localStorage.setItem("nyanga",JSON.stringify(tickets[i]['cpt_nyanga']))
+          }
           break;
         case "cpt-langa":
-          alert(x.value);
-          location.push(x.value)
-          myNum = 42;
-          return myNum
+          console.log("langa2")
           break;
         case "cpt-khaya":
-          alert("khaltsha");
+          console.log("khaltsha");
           break;
         case "cpt-gugs":
-          alert("gugs");
+          console.log("gugs");
           break;
-          default: // called if the value is none of the above
+        default: // called if the value is none of the above
           alert("Please select station");
           break;
       }
 
-      function getNum(){
-      return number;
+      function getNum() {
+        return number;
+      }
+      return getNum
     }
-    return getNum
-    }
-  
+
   </script>
 
-  <!-- <script src='https://unpkg.com/@turf/turf@6.3.0/turf.min.js'></script>
-<script>
-    var bbox = turf.bbox(features);
-</script> -->
   <title>INCREDIBLE BUS INC</title>
 </head>
 
@@ -87,10 +86,7 @@ const tickets = [
   <div class="container" id="tp">
 
     <div class="container-fluid demo  border border-info">
-      <div class="col-md-3" id="fe">
-        <a href="./test.html">
-          <button style="text-align: center; background-color:slategrey; font-size: 1.1rem;">Unit Tests</button></a>
-      </div>
+     
       <div class="col-md-9" id="fn">
         <h2 style="text-align: center;">WELCOME TO</h2>
         <h1 style="text-align: center;">INCREDIBLE BUS INC</h1>
@@ -105,11 +101,12 @@ const tickets = [
       <div class="row">
 
         <div class="col-md-8">
-        </br>
+          </br>
 
-          <select id="selectFrom" type="search" id="place-search-input" class="form-control" type="text" onChange = "func(this)" >
+          <select id="selectFrom" type="search" id="place-search-input" class="form-control" type="text"
+            onChange="func(this)">
             <option selected="selected" value="select">PLEASE SELECT BUS STATION IN YOUR AREA</option>
-            <option value="cpt-cpt">NYANGA - CAPE TOWN</option>
+            <option value="cpt-nyanga">NYANGA - CAPE TOWN</option>
             <option value="cpt-langa">LANGA - CAPE TOWN</option>
             <option value="cpt-khaya">Khayelitsha - CAPE TOWN</option>
             <option value="cpt-gugs">Gugulethu - CAPE TOWN</option>
@@ -142,7 +139,7 @@ const tickets = [
   <script src="js/bootstrap.js"></script>
   <script src="js/scrollReveal.js" defer></script>
 
- 
+
 </body>
 
 </html>
