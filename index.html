@@ -14,51 +14,66 @@
 
   <script src="https://api.mqcdn.com/sdk/place-search-js/v1.0.0/place-search.js"></script>
 
-  <script type = "text/javascript">						
+  <script type = "text/javascript">	
+
+const tickets = [
+     {  name: "cpt_nyanga",
+        daily: 15,
+        weekly: 100,
+        two_weeks: 180,
+        monthly: 300
+    },
+     {  name: "cpt_langa",
+        daily: 12,
+        weekly: 90,
+        two_weeks: 150,
+        monthly: 280
+    },
+     {name: "cpt_khayelitsha",
+        daily: 19,
+        weekly: 200,
+        two_weeks: 280,
+        monthly: 400
+    },
+     {  name: "cpt_gugs",
+        daily: 16,
+        weekly: 120,
+        two_weeks: 194,
+        monthly: 250
+    }
+  ]
+ 
     function func(x) {
+      
       alert(x.value);
       var location = []
       switch(x.value) {
-        case "-75.343, 39.984":
-          location.push(x.value)
-          console.log(location)
+        case "cpt-nyanga":
+          localStorage.setItem()
           break;
-        case "-33.946,18.53":
+        case "cpt-langa":
           alert(x.value);
           location.push(x.value)
-          console.log(location)
+          myNum = 42;
+          return myNum
           break;
-        case "-34.0405905,18.6674201":
+        case "cpt-khaya":
           alert("khaltsha");
           break;
-        case "-33.9822829,18.5795736":
+        case "cpt-gugs":
           alert("gugs");
           break;
-      }
-    }
-    function selectTo(destination) {
-      alert(destination.value);
-      switch(destination.value) {
-        case "0":
-          alert("selected 0");
-          break;
-        case "-75.343, 39.984":
-          alert("Cape Town");
-          break;
-        case "2":
-          alert("selected 2");
-          break;
-        case "3":
-          alert("selected 3");
-          break;
-        case "4":
-          alert("selected 4");
-          break;
-        default: // called if the value is none of the above
-          alert("selected 5");
+          default: // called if the value is none of the above
+          alert("Please select station");
           break;
       }
+
+      function getNum(){
+      return number;
     }
+    return getNum
+    }
+  
   </script>
 
   <!-- <script src='https://unpkg.com/@turf/turf@6.3.0/turf.min.js'></script>
@@ -90,25 +105,16 @@
       <div class="row">
 
         <div class="col-md-8">
+        </br>
 
           <select id="selectFrom" type="search" id="place-search-input" class="form-control" type="text" onChange = "func(this)" >
-            <option selected="selected">PLEASE SELECT BUS STATION IN YOUR AREA</option>
-            <option value="-75.343, 39.984">CAPE TOWN</option>
-            <option value="-33.946,18.53">Langa</option>
-            <option value="-34.0405905,18.6674201">Khayelitsha</option>
-            <option value="-33.9822829,18.5795736">Gugulethu</option>
+            <option selected="selected" value="select">PLEASE SELECT BUS STATION IN YOUR AREA</option>
+            <option value="cpt-cpt">NYANGA - CAPE TOWN</option>
+            <option value="cpt-langa">LANGA - CAPE TOWN</option>
+            <option value="cpt-khaya">Khayelitsha - CAPE TOWN</option>
+            <option value="cpt-gugs">Gugulethu - CAPE TOWN</option>
           </select>
-          <!-- <input type="search" id="place-search-input" class="form-control" type="text" placeholder="FROM"> -->
-        
           </br>
-          <!-- <input class="form-control" type="text" placeholder="TO"> -->
-          <select id="selectTo" type="search" id="place-search-input" class="form-control" type="text" onChange = "selectTo(this)" >
-            <option selected="selected" value="0">PLEASE SELECT DROP OFF TOWN</option>
-            <option value="-75.343, 39.984">CAPE TOWN</option>
-            <option value="-33.946,18.53">Langa</option>
-            <option value="-34.0405905,18.6674201">Khayelitsha</option>
-            <option value="-33.9822829,18.5795736">Gugulethu</option>
-          </select>
         </div>
         <div class="col-md-12">
           <p class="errorMessage"></p>
@@ -128,8 +134,6 @@
           </a>
         </div>
       </div>
-      <p  id="p" style="font-size: 2.5rem;"></p>
-
     </div>
 
 
