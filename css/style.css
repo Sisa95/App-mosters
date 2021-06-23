@@ -111,6 +111,24 @@ h6 {
     background: linear-gradient(to right, #408d00da, #103d0244); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     
 }
-.ticket_prices{
-    margin: 20px;
+.ticket_prices,
+.today_price,
+.weekly_price,
+.forth_price,
+.monthly_price{
+    margin: 15px;
 }
+option{
+    text-transform: uppercase;
+    text-align: justify;
+}
+#stats{
+    height: 50vh;
+    width: 80%;
+    margin: auto;
+    background: -webkit-linear-gradient(to right, #1a8006d3, #000428);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #3f8d00a1, #103d0244); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+
+}
+

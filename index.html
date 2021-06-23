@@ -1,73 +1,144 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
+
+<head>
+  <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
   <link href="css/bootstrap.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css">
 
 
-<link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/place-search-js/v1.0.0/place-search.css"/>
+  <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/place-search-js/v1.0.0/place-search.css" />
 
-<script src="https://api.mqcdn.com/sdk/place-search-js/v1.0.0/place-search.js"></script>
-    <title>INCREDIBLE BUS INC</title>
-  </head>
-  <body>
+  <script src="https://api.mqcdn.com/sdk/place-search-js/v1.0.0/place-search.js"></script>
+
+  <script type = "text/javascript">						
+    function func(x) {
+      alert(x.value);
+      var location = []
+      switch(x.value) {
+        case "-75.343, 39.984":
+          location.push(x.value)
+          console.log(location)
+          break;
+        case "-33.946,18.53":
+          alert(x.value);
+          location.push(x.value)
+          console.log(location)
+          break;
+        case "-34.0405905,18.6674201":
+          alert("khaltsha");
+          break;
+        case "-33.9822829,18.5795736":
+          alert("gugs");
+          break;
+      }
+    }
+    function selectTo(destination) {
+      alert(destination.value);
+      switch(destination.value) {
+        case "0":
+          alert("selected 0");
+          break;
+        case "-75.343, 39.984":
+          alert("Cape Town");
+          break;
+        case "2":
+          alert("selected 2");
+          break;
+        case "3":
+          alert("selected 3");
+          break;
+        case "4":
+          alert("selected 4");
+          break;
+        default: // called if the value is none of the above
+          alert("selected 5");
+          break;
+      }
+    }
+  </script>
+
+  <!-- <script src='https://unpkg.com/@turf/turf@6.3.0/turf.min.js'></script>
+<script>
+    var bbox = turf.bbox(features);
+</script> -->
+  <title>INCREDIBLE BUS INC</title>
+</head>
+
+<body>
   <div class="container" id="tp">
 
     <div class="container-fluid demo  border border-info">
-        <div class="col-md-3" id="fe">
-            <a href="./test.html">
-                <button style="text-align: center; background-color:slategrey; font-size: 1.1rem;">Unit Tests</button></a>           
-        </div>
-        <div class="col-md-9" id="fe">
-            <h2 style="text-align: center;">WELCOME TO</h2>
-            <h1 style="text-align: center;">INCREDIBLE BUS INC</h1>               
-        </div>
-    
+      <div class="col-md-3" id="fe">
+        <a href="./test.html">
+          <button style="text-align: center; background-color:slategrey; font-size: 1.1rem;">Unit Tests</button></a>
+      </div>
+      <div class="col-md-9" id="fn">
+        <h2 style="text-align: center;">WELCOME TO</h2>
+        <h1 style="text-align: center;">INCREDIBLE BUS INC</h1>
+      </div>
 
-        <div class="col-md-10" id="fe">
-            <h1 style="text-align: justify; font-size: 1.2em">Please Enter Your Departure Location And Destination</h1>             
-            
-          </div>
 
-        <div class="row">
-            
-            <div class="col-md-8">
-              <input type="search" id="place-search-input" class="form-control" type="text" placeholder="FROM">
-            </br>
-               <input class="form-control" type="text" placeholder="TO">
-              </div>
-            <div class="col-md-12">
-              <p class="errorMessage"></p>
-            </div>
+      <div class="col-md-10" id="fe">
+        <h1 style="text-align: justify; font-size: 1.2em">Please Enter Your Departure Location And Destination</h1>
 
+      </div>
+
+      <div class="row">
+
+        <div class="col-md-8">
+
+          <select id="selectFrom" type="search" id="place-search-input" class="form-control" type="text" onChange = "func(this)" >
+            <option selected="selected">PLEASE SELECT BUS STATION IN YOUR AREA</option>
+            <option value="-75.343, 39.984">CAPE TOWN</option>
+            <option value="-33.946,18.53">Langa</option>
+            <option value="-34.0405905,18.6674201">Khayelitsha</option>
+            <option value="-33.9822829,18.5795736">Gugulethu</option>
+          </select>
+          <!-- <input type="search" id="place-search-input" class="form-control" type="text" placeholder="FROM"> -->
+        
+          </br>
+          <!-- <input class="form-control" type="text" placeholder="TO"> -->
+          <select id="selectTo" type="search" id="place-search-input" class="form-control" type="text" onChange = "selectTo(this)" >
+            <option selected="selected" value="0">PLEASE SELECT DROP OFF TOWN</option>
+            <option value="-75.343, 39.984">CAPE TOWN</option>
+            <option value="-33.946,18.53">Langa</option>
+            <option value="-34.0405905,18.6674201">Khayelitsha</option>
+            <option value="-33.9822829,18.5795736">Gugulethu</option>
+          </select>
+        </div>
+        <div class="col-md-12">
+          <p class="errorMessage"></p>
         </div>
 
-        <div class="row">
-                <div class="col-md-4">
-                    <button class="btn btn-1 btn-sep icon-info" class="btn" style="background:rgba(252, 252, 252, 0) !important; border-color: rgba(252, 252, 252, 0) !important;"></button>
-                </div>
-            
-                 <div class="col-md-4">
-                       <a href="./prices.html"> 
-                        <button class="btn btn-1 btn-sep icon-info addButton" style="margin-left: 63%;">Enter</button>
-                       </a>
-                </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <button class="btn btn-1 btn-sep icon-info" class="btn"
+            style="background:rgba(252, 252, 252, 0) !important; border-color: rgba(252, 252, 252, 0) !important;"></button>
         </div>
+
+        <div class="col-md-4">
+          <a href="./prices.html">
+            <button class="btn btn-1 btn-sep icon-info addButton" style="margin-left: 63%;">Enter</button>
+          </a>
+        </div>
+      </div>
+      <p  id="p" style="font-size: 2.5rem;"></p>
 
     </div>
 
-    
-</div>
 
-    <script src="js/bootstrap.js"></script>
-    <script src="js/scrollReveal.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/@algolia/autocomplete-js"></script>
-<script>
-  const { autocomplete } = window['@algolia/autocomplete-js'];
-</script>
-  </body>
+  </div>
+
+  <script src="js/bootstrap.js"></script>
+  <script src="js/scrollReveal.js" defer></script>
+
+ 
+</body>
+
 </html>
