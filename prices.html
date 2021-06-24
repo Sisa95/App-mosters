@@ -9,10 +9,7 @@
   <link href="css/bootstrap.css" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 
-  <script src='https://unpkg.com/@turf/turf@6.3.0/turf.min.js'></script>
-<script>
-    var bbox = turf.bbox(features);
-</script>
+
 
   <title>prices</title>
 </head>
@@ -27,7 +24,7 @@
       </div>
     
       <div class="col-md-9" id="fe">
-        <h1 style="margin-left: 10%">INCREDIBLE BUS INC</h1>
+        <h1 style="margin-left: 10%" class="loc">INCREDIBLE BUS INC</h1>
         <h4 style="margin-left:20%">Please select your ticket type</h4>
        
       </div>
@@ -44,7 +41,7 @@
             <tr>
                 <td>
                     <div class="radio">
-                        <label><input type="radio" value="50.00" class="ticket_prices" name="ticket_prices">TODAY</label>
+                        <label><input type="radio" class="ticket_prices" name="ticket_prices" value="dailySales">DAILY</label>
                     </div>
                 </td>
                 <td>
@@ -57,7 +54,7 @@
               <tr>
                 <td>
                     <div class="radio">
-                        <label><input type="radio" class="ticket_prices" name="ticket_prices">WEEKLY</label>
+                        <label><input type="radio" class="ticket_prices" name="ticket_prices" value="weeklySales">WEEKLY</label>
                     </div>
                 </td>
                 <td>
@@ -69,7 +66,7 @@
             <tr>
               <td>
                   <div class="radio">
-                      <label><input type="radio" class="ticket_prices" name="ticket_prices" value="2_week">2 WEEKS</label>
+                      <label><input type="radio" class="ticket_prices" name="ticket_prices" value="two_weeksSales">2 WEEKS</label>
                   </div>
               </td>
               <td>
@@ -81,7 +78,7 @@
           <tr>
             <td>
                 <div class="radio">
-                    <label><input type="radio" class="ticket_prices" name="ticket_prices">MONTHLY</label>
+                    <label><input type="radio" class="ticket_prices" name="ticket_prices" value="monthlySales">MONTHLY</label>
                 </div>
             </td>
             <td>
@@ -101,7 +98,7 @@
         </div>
 
         <div class="col-md-4">
-          <button class="btn btn-1 btn-sep icon-info addButton" style="margin-left: 140%;">Enter</button>
+          <a href="./payments.html"><button class="btn btn-1 btn-sep icon-info addButton" style="margin-left: 140%;">Enter</button>
         </div>
       </div>
 

@@ -9,33 +9,32 @@
   <link href="css/bootstrap.css" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 
-
-  <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/place-search-js/v1.0.0/place-search.css" />
-
-  <script src="https://api.mqcdn.com/sdk/place-search-js/v1.0.0/place-search.js"></script>
-
   <script type="text/javascript">
 
     const tickets = [{
-      "cpt_nyanga": {
-        daily: 15, 
+      cpt_nyanga: {
+        location: "Nyanga",
+        daily: 16,
         weekly: 100,
-        two_weeks: 180,
-        monthly: 300
+        two_weeks: 190,
+        monthly: 340
       },
-      "cpt_langa": {
+      cpt_langa: {
+        location: "Langa",
         daily: 12,
         weekly: 90,
         two_weeks: 150,
         monthly: 280
       },
       "cpt_khayelitsha": {
+        location: "Khayelitsha",
         daily: 19,
         weekly: 200,
         two_weeks: 280,
         monthly: 400
       },
       "cpt_gugs": {
+        location: "Gugulethu",
         daily: 16,
         weekly: 120,
         two_weeks: 194,
@@ -43,38 +42,38 @@
       }
     }]
 
-
-
     function func(x) {
+      document.querySelector(".addButton").style.display = "block";
 
-      var location = [];
+      if (localStorage["location"]) {
+        localStorage.removeItem("location")
+      }
+
       switch (x.value) {
-
         case "cpt-nyanga":
-  
           for (var i = 0; i < tickets.length; i++) {
-           console.log(tickets[i]['cpt_nyanga'])
-           localStorage.setItem("nyanga",JSON.stringify(tickets[i]['cpt_nyanga']))
+            localStorage.setItem("location", JSON.stringify(tickets[i]['cpt_nyanga']))
           }
           break;
         case "cpt-langa":
-          console.log("langa2")
+          for (var i = 0; i < tickets.length; i++) {
+            localStorage.setItem("location", JSON.stringify(tickets[i]['cpt_langa']))
+          }
           break;
         case "cpt-khaya":
-          console.log("khaltsha");
+          for (var i = 0; i < tickets.length; i++) {
+            localStorage.setItem("location", JSON.stringify(tickets[i]['cpt_khayelitsha']))
+          }
           break;
         case "cpt-gugs":
-          console.log("gugs");
+          for (var i = 0; i < tickets.length; i++) {
+            localStorage.setItem("location", JSON.stringify(tickets[i]['cpt_gugs']))
+          }
           break;
-        default: // called if the value is none of the above
-          alert("Please select station");
-          break;
+        case "select":
+          document.querySelector(".addButton").style.display = "none";
       }
-
-      function getNum() {
-        return number;
-      }
-      return getNum
+      localStorage.setItem("tickets", JSON.stringify(tickets))
     }
 
   </script>
@@ -86,7 +85,7 @@
   <div class="container" id="tp">
 
     <div class="container-fluid demo  border border-info">
-     
+
       <div class="col-md-9" id="fn">
         <h2 style="text-align: center;">WELCOME TO</h2>
         <h1 style="text-align: center;">INCREDIBLE BUS INC</h1>
@@ -127,7 +126,7 @@
 
         <div class="col-md-4">
           <a href="./prices.html">
-            <button class="btn btn-1 btn-sep icon-info addButton" style="margin-left: 63%;">Enter</button>
+            <button class="btn btn-1 btn-sep icon-info addButton" style="margin-left: 63%; display: none;">Enter</button>
           </a>
         </div>
       </div>
