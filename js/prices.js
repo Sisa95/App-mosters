@@ -36,6 +36,8 @@ document.querySelector(".admin-only").addEventListener("click", function () {
 
 
 function radioButtons() {
+    var heartPath = document.querySelector(".addButton")
+    party.confetti(heartPath);
     var checkedRadioBtn = document.querySelector("input[name='ticket_prices']:checked");
 
     var typeOfTicket = checkedRadioBtn.value;
@@ -61,5 +63,5 @@ function radioButtons() {
     localStorage['ticketSales'] = JSON.stringify(ticketSales.getData());
 
 
-}
+} //party.confetti(element);
 document.querySelector(".addButton").addEventListener("click", radioButtons)
