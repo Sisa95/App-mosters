@@ -36,18 +36,11 @@ document.querySelector(".admin-only").addEventListener("click", function () {
 
 
 function radioButtons() {
-    // var allTickets;
-    //     if(localStorage["tickets"]){
-    //         allTickets = JSON.parse(localStorage.getItem("tickets"))
-    //     }
-    //     console.log(allTickets)
     var checkedRadioBtn = document.querySelector("input[name='ticket_prices']:checked");
-    var typeOfTicket = checkedRadioBtn.value;
 
+    var typeOfTicket = checkedRadioBtn.value;
     ticketSales.countTicketType(selectedLocation.location, typeOfTicket);
     console.log(ticketSales.getData());
-
-    // console.log(massChart.data.datasets);
 
     const newData = ticketSales.getSalesDataByType();
 
