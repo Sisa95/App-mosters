@@ -19,89 +19,143 @@
 
     <div class="container-fluid demo  border border-info">
       <div class="col-md-3" id="fe">
-        <a href="./admin.html">
-          <button style="text-align: center; background-color:slategrey; font-size: 1.1rem;">Admin Only</button></a>
-      </div>
-    
-      <div class="col-md-9" id="fe">
-        <h1 style="margin-left: 10%" class="loc">INCREDIBLE BUS INC</h1>
-        <h4 style="margin-left:20%">Please select your ticket type</h4>
-       
+        <!-- <a href="./admin.html"> -->
+        <button class="admin-only" style="text-align: center; background-color:slategrey; font-size: 1.1rem;">Admin
+          Only</button>
+        <!-- </a> -->
       </div>
 
-      <table class="table table-responsive">
-        <thead>
-            <tr>
-                <th>TICKET TYPE</th>
-                <th>PRICE</th>
-            </tr>
-        </thead>
-        <tbody>
-        <form>
-            <tr>
-                <td>
-                    <div class="radio">
-                        <label><input type="radio" class="ticket_prices" name="ticket_prices" value="dailySales">DAILY</label>
-                    </div>
-                </td>
-                <td>
-                <div class="radiotext">
-                    <label for='regular'>R<span class="today_price">0.00</span></label>
+
+      <div class="admin hidden">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/style.css">
+
+
+        <title>Admin</title>
+        </head>
+
+        <body>
+          <div class="container" id="tp">
+
+            <div class="container-fluid demo  border border-info">
+
+
+              <div class="col-md-9" id="fe">
+                <h1 style="margin-left: 10%"><a href="./index.html">INCREDIBLE BUS INC</a></h1>
+
+              </div>
+
+              <table class="table table-responsive">
+                <div class="container">
+                  <canvas id="myChart"></canvas>
                 </div>
-                </td>
-            </tr>
+
+              </table>
+
+              <div class="row">
+
+                <div class="col-md-4">
+                  <a href="./prices.html"><button class="btn btn-1 btn-sep icon-info" class="btn"
+                      style="margin-left: 36%;">BACK</button></a>
+                </div>
+              </div>
+
+            </div>
+
+
+          </div>
+
+          <script src="js/bootstrap.js"></script>
+          <script src="js/scrollReveal.js" defer></script>
+      </div>
+
+      <div class="prices">
+        <div class="col-md-9" id="fe">
+          <h1 style="margin-left: 10%" class="loc">INCREDIBLE BUS INC</h1>
+          <h4 style="margin-left:20%">Please select your ticket type</h4>
+
+        </div>
+
+        <table class="table table-responsive">
+          <thead>
             <tr>
+              <th>TICKET TYPE</th>
+              <th>PRICE</th>
+            </tr>
+          </thead>
+          <tbody>
+            <form>
               <tr>
                 <td>
-                    <div class="radio">
-                        <label><input type="radio" class="ticket_prices" name="ticket_prices" value="weeklySales">WEEKLY</label>
-                    </div>
+                  <div class="radio">
+                    <label><input type="radio" class="ticket_prices" name="ticket_prices"
+                        value="dailySales">DAILY</label>
+                  </div>
                 </td>
                 <td>
-                <div class="radiotext">
-                    <label for='regular'>R<span class="weekly_price">0.00</span></label>
-                </div>
-                </td>
-            </tr>
-            <tr>
-              <td>
-                  <div class="radio">
-                      <label><input type="radio" class="ticket_prices" name="ticket_prices" value="two_weeksSales">2 WEEKS</label>
+                  <div class="radiotext">
+                    <label for='regular'>R<span class="today_price">0.00</span></label>
                   </div>
-              </td>
-              <td>
-              <div class="radiotext">
-                  <label for='regular'>R<span class="forth_price">0.00</span></label>
-              </div>
-              </td>
-          </tr>
-          <tr>
-            <td>
-                <div class="radio">
-                    <label><input type="radio" class="ticket_prices" name="ticket_prices" value="monthlySales">MONTHLY</label>
-                </div>
-            </td>
-            <td>
-            <div class="radiotext">
-                <label for='regular'>R<span class="monthly_price">0.00</span></label>
-            </div>
-            </td>
-        </tr>
-          </form>
+                </td>
+              </tr>
+              <tr>
+              <tr>
+                <td>
+                  <div class="radio">
+                    <label><input type="radio" class="ticket_prices" name="ticket_prices"
+                        value="weeklySales">WEEKLY</label>
+                  </div>
+                </td>
+                <td>
+                  <div class="radiotext">
+                    <label for='regular'>R<span class="weekly_price">0.00</span></label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="radio">
+                    <label><input type="radio" class="ticket_prices" name="ticket_prices" value="two_weeksSales">2
+                      WEEKS</label>
+                  </div>
+                </td>
+                <td>
+                  <div class="radiotext">
+                    <label for='regular'>R<span class="forth_price">0.00</span></label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="radio">
+                    <label><input type="radio" class="ticket_prices" name="ticket_prices"
+                        value="monthlySales">MONTHLY</label>
+                  </div>
+                </td>
+                <td>
+                  <div class="radiotext">
+                    <label for='regular'>R<span class="monthly_price">0.00</span></label>
+                  </div>
+                </td>
+              </tr>
+            </form>
           </tbody>
- </table>
+        </table>
 
-      <div class="row">
-        
-        <div class="col-md-4">
-          <a href="./index.html"><button class="btn btn-1 btn-sep icon-info" class="btn" style="margin-left: 36%;">BACK</button></a>
-        </div>
+        <div class="row">
 
-        <div class="col-md-4">
-          <a href="./payments.html"><button class="btn btn-1 btn-sep icon-info addButton" style="margin-left: 140%;">Enter</button>
+          <div class="col-md-4">
+            <a href="./index.html"><button class="btn btn-1 btn-sep icon-info" class="btn"
+                style="margin-left: 36%;">BACK</button></a>
+          </div>
+
+          <div class="col-md-4">
+            <a href="#"><button class="btn btn-1 btn-sep icon-info addButton" style="margin-left: 140%;">Purchase</button>
+          </div>
         </div>
       </div>
-
     </div>
 
 
@@ -110,7 +164,10 @@
   <script src="js/bootstrap.js"></script>
   <script src="js/scrollReveal.js" defer></script>
 
+  <script src="js/ticket-sales.js"></script>
   <script src="js/prices.js"></script>
+  <script src="js/ticket-sales-per-area.js"></script>
+
 </body>
 
 </html>

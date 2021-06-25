@@ -1,55 +1,40 @@
-const ticketSales = [
-    {
-        location: "nyanga",
-        dailySales: 0,
-        weeklySales: 0,
-        two_weeksSales: 0,
-        monthlySales: 0
-    },
-    {
-        location: "langa",
-        dailySales: 0,
-        weeklySales: 0,
-        two_weeksSales: 0,
-        monthlySales: 0
-    },
-    {
-        location: "khayelitsha",
-        dailySales: 0,
-        weeklySales: 0,
-        two_weeksSales: 0,
-        monthlySales: 0
-    },
-    {
-        location: "gugs",
-        dailySales: 0,
-        weeklySales: 0,
-        two_weeksSales: 0,
-        monthlySales: 0
-    }
-]
-let ticket = ticketSales.find(ticket => ticket.location === "nyanga");
-console.log(ticket)
 
-var nyangaTickets;
+
+const storedTicketSales = localStorage['ticketSales']
+
+const ticketSales = storedTicketSales ? TicketSales(JSON.parse(storedTicketSales)) : TicketSales();
+
+var selectedLocation;
 
 if (localStorage['location']) {
-    nyangaTickets = JSON.parse(localStorage.getItem("location"))
+    selectedLocation = JSON.parse(localStorage.getItem("location"))
 
     var todayPrice = document.querySelector(".today_price")
     var weeklyPrice = document.querySelector(".weekly_price")
     var forthPrice = document.querySelector(".forth_price")
     var monthlyPrice = document.querySelector(".monthly_price")
-    var loc =  document.querySelector(".loc")
+    var loc = document.querySelector(".loc")
 
-    todayPrice.innerHTML = nyangaTickets.daily
-    weeklyPrice.innerHTML = nyangaTickets.weekly
-    forthPrice.innerHTML = nyangaTickets.two_weeks
-    monthlyPrice.innerHTML = nyangaTickets.monthly
-   loc.innerHTML = nyangaTickets.location;
-   loc.style.marginLeft = "30%";
-   loc.style.color = "#1f4202da";
+    todayPrice.innerHTML = selectedLocation.daily
+    weeklyPrice.innerHTML = selectedLocation.weekly
+    forthPrice.innerHTML = selectedLocation.two_weeks
+    monthlyPrice.innerHTML = selectedLocation.monthly
+    loc.innerHTML = selectedLocation.location;
+    loc.style.marginLeft = "30%";
+    loc.style.color = "#1f4202da";
 }
+
+const adminArea = document.querySelector('.admin')
+const priceArea = document.querySelector('.prices')
+
+document.querySelector(".admin-only").addEventListener("click", function () {
+
+    adminArea.classList.toggle('hidden');
+    priceArea.classList.toggle('hidden');
+
+});
+
+
 function radioButtons() {
     // var allTickets;
     //     if(localStorage["tickets"]){
@@ -58,15 +43,30 @@ function radioButtons() {
     //     console.log(allTickets)
     var checkedRadioBtn = document.querySelector("input[name='ticket_prices']:checked");
     var typeOfTicket = checkedRadioBtn.value;
-    if (checkedRadioBtn) {
-       if(nyangaTickets.location == "Nyanga"){
-           if(typeOfTicket == "dailySales"){
-              ticketSales.dailySales = ticketSales.dailySales + 1
-           }
-       } 
-    }
-    let ticket = ticketSales.find(ticket => ticket.location === "nyanga");
-console.log(ticket)
+
+    ticketSales.countTicketType(selectedLocation.location, typeOfTicket);
+    console.log(ticketSales.getData());
+
+    // console.log(massChart.data.datasets);
+
+    const newData = ticketSales.getSalesDataByType();
+
+    massChart.data.datasets.forEach(function(dataset, index) {
+        
+        while(dataset.data.length > 0) {
+            dataset.data.pop()
+        };
+
+        newData[index].forEach(function(row){
+            dataset.data.push(row);
+        })
+        
+    });
+
+    massChart.update();
+
+    localStorage['ticketSales'] = JSON.stringify(ticketSales.getData());
+
 
 }
 document.querySelector(".addButton").addEventListener("click", radioButtons)

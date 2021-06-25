@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <link href="css/bootstrap.css" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
@@ -25,8 +26,115 @@
       </div>
 
       <table class="table table-responsive">
-       <p id="stats">
-        </p>
+        <div class="container">
+            <canvas id="myChart"></canvas>
+        </div>
+        <script>
+            var mychart = document.getElementById('myChart').getContext('2d');
+    
+            var massChart = new Chart(mychart, {
+                type: "bar",
+                data: {
+                    labels: ['Langa-CPT', 'Nyanga-CPT', 'Khayelitsha-CPT', 'Gugulethu-CPT'],
+                    datasets: [{
+                        label: 'Daily',
+                        data: [
+                            20,
+                            40,
+                            60,
+                            20,
+                            30,
+                            40
+    
+                        ],
+                        backgroundColor: 'green',
+                        borderWidth: 5
+    
+                    },
+                    {
+                        label: 'Weekly',
+    
+                        data: [
+                            55,
+                            60,
+                            60,
+                            80,
+                            40,
+                            100
+    
+                        ],
+                        backgroundColor: 'blue',
+                        borderWidth: 5
+                    },
+                    {
+                        label: 'FortNightly',
+    
+                        data: [
+                            50,
+                            50,
+                            80,
+                            120,
+                            100,
+                            70
+    
+                        ],
+                        backgroundColor: 'yellow',
+                        borderWidth: 5
+                    },
+                    {
+                        label: 'Monthly',
+                        data: [
+                            55,
+                            60,
+                            75,
+                            80,
+                            85,
+                            100
+    
+                        ],
+    
+                        backgroundColor: 'red',
+                        borderWidth: 5
+                    }]
+    
+                },
+    
+                options: {}
+            });
+            function activeChart(chart, label, data) {
+                const Bustickets = {
+                    cpt_nyanga: {
+                        location: "nyanga",
+                        daily: 15,
+                        weekly: 100,
+                        two_weeks: 180,
+                        monthly: 300
+                    },
+                    cpt_langa: {
+                        location: "langa",
+                        daily: 12,
+                        weekly: 90,
+                        two_weeks: 150,
+                        monthly: 280
+                    },
+                    cpt_khayelitsha: {
+                        location: "khayelitsha",
+                        daily: 19,
+                        weekly: 200,
+                        two_weeks: 280,
+                        monthly: 400
+                    },
+                    cpt_gugs: {
+                        location: "gugs",
+                        daily: 16,
+                        weekly: 120,
+                        two_weeks: 194,
+                        monthly: 250
+                    }
+                }
+            }
+            // const lineChartData = await fetch(apiU)
+        </script>
        
  </table>
 
